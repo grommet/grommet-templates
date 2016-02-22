@@ -23,15 +23,17 @@
     "npm": ">= 1.4"
   },
   "dependencies": {
-    "grommet": "https://github.com/grommet/grommet/tarball/stable",
-    "lodash": "^3.8.0"
+    "grommet": "https://github.com/grommet/grommet/tarball/stable"
   },
   "devDependencies": {
-    "gulp": "^3.8.11",
     "babel-plugin-add-module-exports": "^0.1.2",
     "babel-plugin-transform-object-rest-spread": "^6.3.13",
     "babel-preset-es2015": "^6.3.13",
-    "babel-preset-react": "^6.3.13"
+    "babel-preset-react": "^6.3.13",
+    "del": "^2.2.0",
+    "gulp": "^3.8.11",
+    "gulp-git": "^1.7.0",
+    "mkdirp": "^0.5.1"
   },
   "scripts": {
     "build": "gulp dist"
