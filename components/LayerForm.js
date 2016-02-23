@@ -32,9 +32,36 @@ var _Button = require('grommet/components/Button');
 
 var _Button2 = _interopRequireDefault(_Button);
 
+var _Spinning = require('grommet/components/icons/Spinning');
+
+var _Spinning2 = _interopRequireDefault(_Spinning);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// (C) Copyright 2016 Hewlett Packard Enterprise Development LP
+
 var LayerForm = function LayerForm(props) {
+
+  var control = undefined;
+  if (props.busy) {
+    var label = true === props.busy ? '' : props.busy;
+    control = _react2.default.createElement(
+      _Box2.default,
+      { direction: 'row', align: 'center',
+        pad: { horizontal: 'medium', between: 'small' } },
+      _react2.default.createElement(_Spinning2.default, null),
+      _react2.default.createElement(
+        'span',
+        { className: 'secondary' },
+        label
+      )
+    );
+  } else {
+    control = _react2.default.createElement(_Button2.default, { type: 'submit', primary: true, strong: true,
+      label: props.submitLabel,
+      onClick: props.onSubmit });
+  }
+
   return _react2.default.createElement(
     _Layer2.default,
     { align: 'right', closer: true, onClose: props.onClose,
@@ -58,17 +85,16 @@ var LayerForm = function LayerForm(props) {
         _react2.default.createElement(
           _Footer2.default,
           { pad: { vertical: 'medium' }, justify: 'between' },
-          _react2.default.createElement(_Button2.default, { type: 'submit', primary: true, strong: true,
-            label: props.submitLabel,
-            onClick: props.onSubmit }),
+          control,
           props.secondaryControl
         )
       )
     )
   );
-}; // (C) Copyright 2016 Hewlett Packard Enterprise Development LP
+};
 
 LayerForm.propTypes = {
+  busy: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.bool]),
   compact: _react.PropTypes.bool,
   onClose: _react.PropTypes.func.isRequired,
   onSubmit: _react.PropTypes.func.isRequired,
