@@ -1,6 +1,6 @@
 // (C) Copyright 2016 Hewlett Packard Enterprise Development LP
 
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Layer from 'grommet/components/Layer';
 import Box from 'grommet/components/Box';
 import Form from 'grommet/components/Form';
@@ -9,42 +9,56 @@ import Footer from 'grommet/components/Footer';
 import Button from 'grommet/components/Button';
 import BusyIcon from 'grommet/components/icons/Spinning';
 
-const LayerForm = (props) => {
+export default class LayerForm extends Component {
 
-  let control;
-  if (props.busy) {
-    const label = (true === props.busy ? '' : props.busy);
-    control = (
-      <Box direction="row" align="center"
-        pad={{horizontal: 'medium', between: 'small'}}>
-        <BusyIcon /><span className="secondary">{label}</span>
-      </Box>
-    );
-  } else {
-    control = (
-      <Button type="submit" primary={true} strong={true}
-        label={props.submitLabel}
-        onClick={props.onSubmit} />
-    );
+  constructor () {
+    super();
+    this._onSubmit = this._onSubmit.bind(this);
   }
 
-  return (
-    <Layer align="right" closer={true} onClose={props.onClose}
-      a11yTitle={props.title}>
-      <Box full="vertical" justify="center">
-        <Form onSubmit={props.onSubmit} compact={props.compact}>
-          <h1>{props.title}</h1>
-          <FormFields>
-            {props.children}
-          </FormFields>
-          <Footer pad={{vertical: 'medium'}} justify="between">
-            {control}
-            {props.secondaryControl}
-          </Footer>
-        </Form>
-      </Box>
-    </Layer>
-  );
+  _onSubmit (event) {
+    event.preventDefault();
+    this.props.onSubmit();
+  }
+
+  render () {
+    const { submitLabel, onClose, title, compact, busy,
+      secondaryControl } = this.props;
+    let control;
+    if (busy) {
+      const label = (true === busy ? '' : busy);
+      control = (
+        <Box direction="row" align="center"
+          pad={{horizontal: 'medium', between: 'small'}}>
+          <BusyIcon /><span className="secondary">{label}</span>
+        </Box>
+      );
+    } else {
+      control = (
+        <Button type="submit" primary={true} strong={true}
+          label={submitLabel}
+          onClick={this._onSubmit} />
+      );
+    }
+
+    return (
+      <Layer align="right" closer={true} onClose={onClose}
+        a11yTitle={title}>
+        <Box full="vertical" justify="center">
+          <Form onSubmit={this._onSubmit} compact={compact}>
+            <h1>{title}</h1>
+            <FormFields>
+              {this.props.children}
+            </FormFields>
+            <Footer pad={{vertical: 'medium'}} justify="between">
+              {control}
+              {secondaryControl}
+            </Footer>
+          </Form>
+        </Box>
+      </Layer>
+    );
+  }
 };
 
 LayerForm.propTypes = {
@@ -56,5 +70,3 @@ LayerForm.propTypes = {
   submitLabel: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired
 };
-
-export default LayerForm;
