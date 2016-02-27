@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -38,60 +40,98 @@ var _Spinning2 = _interopRequireDefault(_Spinning);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// (C) Copyright 2016 Hewlett Packard Enterprise Development LP
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var LayerForm = function LayerForm(props) {
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-  var control = undefined;
-  if (props.busy) {
-    var label = true === props.busy ? '' : props.busy;
-    control = _react2.default.createElement(
-      _Box2.default,
-      { direction: 'row', align: 'center',
-        pad: { horizontal: 'medium', between: 'small' } },
-      _react2.default.createElement(_Spinning2.default, null),
-      _react2.default.createElement(
-        'span',
-        { className: 'secondary' },
-        label
-      )
-    );
-  } else {
-    control = _react2.default.createElement(_Button2.default, { type: 'submit', primary: true, strong: true,
-      label: props.submitLabel,
-      onClick: props.onSubmit });
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // (C) Copyright 2016 Hewlett Packard Enterprise Development LP
+
+var LayerForm = function (_Component) {
+  _inherits(LayerForm, _Component);
+
+  function LayerForm() {
+    _classCallCheck(this, LayerForm);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(LayerForm).call(this));
+
+    _this._onSubmit = _this._onSubmit.bind(_this);
+    return _this;
   }
 
-  return _react2.default.createElement(
-    _Layer2.default,
-    { align: 'right', closer: true, onClose: props.onClose,
-      a11yTitle: props.title },
-    _react2.default.createElement(
-      _Box2.default,
-      { full: 'vertical', justify: 'center' },
-      _react2.default.createElement(
-        _Form2.default,
-        { onSubmit: props.onSubmit, compact: props.compact },
+  _createClass(LayerForm, [{
+    key: '_onSubmit',
+    value: function _onSubmit(event) {
+      event.preventDefault();
+      this.props.onSubmit();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props;
+      var submitLabel = _props.submitLabel;
+      var onClose = _props.onClose;
+      var title = _props.title;
+      var compact = _props.compact;
+      var busy = _props.busy;
+      var secondaryControl = _props.secondaryControl;
+
+      var control = undefined;
+      if (busy) {
+        var label = true === busy ? '' : busy;
+        control = _react2.default.createElement(
+          _Box2.default,
+          { direction: 'row', align: 'center',
+            pad: { horizontal: 'medium', between: 'small' } },
+          _react2.default.createElement(_Spinning2.default, null),
+          _react2.default.createElement(
+            'span',
+            { className: 'secondary' },
+            label
+          )
+        );
+      } else {
+        control = _react2.default.createElement(_Button2.default, { type: 'submit', primary: true, strong: true,
+          label: submitLabel,
+          onClick: this._onSubmit });
+      }
+
+      return _react2.default.createElement(
+        _Layer2.default,
+        { align: 'right', closer: true, onClose: onClose,
+          a11yTitle: title },
         _react2.default.createElement(
-          'h1',
-          null,
-          props.title
-        ),
-        _react2.default.createElement(
-          _FormFields2.default,
-          null,
-          props.children
-        ),
-        _react2.default.createElement(
-          _Footer2.default,
-          { pad: { vertical: 'medium' }, justify: 'between' },
-          control,
-          props.secondaryControl
+          _Box2.default,
+          { full: 'vertical', justify: 'center' },
+          _react2.default.createElement(
+            _Form2.default,
+            { onSubmit: this._onSubmit, compact: compact },
+            _react2.default.createElement(
+              'h1',
+              null,
+              title
+            ),
+            _react2.default.createElement(
+              _FormFields2.default,
+              null,
+              this.props.children
+            ),
+            _react2.default.createElement(
+              _Footer2.default,
+              { pad: { vertical: 'medium' }, justify: 'between' },
+              control,
+              secondaryControl
+            )
+          )
         )
-      )
-    )
-  );
-};
+      );
+    }
+  }]);
+
+  return LayerForm;
+}(_react.Component);
+
+exports.default = LayerForm;
+;
 
 LayerForm.propTypes = {
   busy: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.bool]),
@@ -102,6 +142,4 @@ LayerForm.propTypes = {
   submitLabel: _react.PropTypes.string.isRequired,
   title: _react.PropTypes.string.isRequired
 };
-
-exports.default = LayerForm;
 module.exports = exports['default'];
