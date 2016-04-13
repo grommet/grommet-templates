@@ -75,7 +75,7 @@ var LayerForm = function (_Component) {
       var busy = _props.busy;
       var secondaryControl = _props.secondaryControl;
 
-      var control = undefined;
+      var control = void 0;
       if (busy) {
         var label = true === busy ? '' : busy;
         control = _react2.default.createElement(

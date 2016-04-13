@@ -1,6 +1,6 @@
 {
   "name": "grommet-templates",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "src/js/index.js",
   "description": "Higher order abstraction composite components built from Grommet core components.",
   "authors": [
@@ -23,7 +23,7 @@
     "npm": ">= 1.4"
   },
   "dependencies": {
-    "grommet": "https://github.com/grommet/grommet/tarball/stable"
+    "grommet": "^0.5.5"
   },
   "devDependencies": {
     "babel-plugin-add-module-exports": "^0.1.2",

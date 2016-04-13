@@ -6,18 +6,12 @@ Object.defineProperty(exports, "__esModule", {
 
 var _LayerForm = require('./components/LayerForm');
 
-var _loop = function _loop(_key2) {
-  if (_key2 === "default") return 'continue';
-  Object.defineProperty(exports, _key2, {
+Object.keys(_LayerForm).forEach(function (key) {
+  if (key === "default") return;
+  Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
-      return _LayerForm[_key2];
+      return _LayerForm[key];
     }
   });
-};
-
-for (var _key2 in _LayerForm) {
-  var _ret = _loop(_key2);
-
-  if (_ret === 'continue') continue;
-}
+});
