@@ -1,42 +1,11 @@
 // (C) Copyright 2016 Hewlett Packard Enterprise Development LP
 
-var del = require('del');
-var git = require('gulp-git');
-var gulp = require('gulp');
-var gulpTasks = require('grommet/utils/gulp/gulp-tasks');
-var mkdirp = require('mkdirp');
-var path = require('path');
-
-var opts = {
-  dist: path.resolve(__dirname, 'dist'),
-  copyAssets: [
-    'README.md',
-    'package.json',
-    {
-      asset: 'src/js/**',
-      babel: true
-    }
-  ],
-  jsAssets: [
-    'src/js/**/*.js'
-  ],
-  mainJs: 'src/js/index.js',
-  webpack: {
-    output: {
-      filename: 'grommet-templates.min.js',
-      libraryTarget: 'var',
-      library: 'GrommetTemplates'
-    },
-    resolve: {
-      modulesDirectories: ['node_modules', 'src/js']
-    },
-    externals: {
-      'react': 'React',
-      'grommet': 'grommet'
-    }
-  },
-  scsslint: true
-};
+import del from 'del';
+import git from 'gulp-git';
+import gulp from 'gulp';
+import grommetToolbox from 'grommet-toolbox';
+import mkdirp from 'mkdirp';
+import path from 'path';
 
 gulp.task('release:createTmp', function(done) {
   del.sync(['./tmp']);
@@ -106,7 +75,7 @@ gulp.task('release:stable', ['dist', 'release:createTmp'], function(done) {
   }
 });
 
-gulpTasks(gulp, opts);
+grommetToolbox(gulp);
 
 gulp.task('dev', function () {
   console.error('Running "gulp dev" here is not supported. Please use "gulp dist".');
