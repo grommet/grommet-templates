@@ -146,9 +146,13 @@ var Main = function (_Component2) {
         null,
         _react2.default.createElement(
           _Header2.default,
-          { size: 'large', justify: 'between', pad: { horizontal: 'medium' } },
+          { size: 'large', pad: { horizontal: 'medium', between: 'small' } },
           title,
-          search,
+          _react2.default.createElement(
+            _Box2.default,
+            { flex: true },
+            search
+          ),
           headerMenu
         ),
         this.props.children
