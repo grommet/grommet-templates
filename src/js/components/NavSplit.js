@@ -56,9 +56,11 @@ class Main extends Component {
     }
     return (
       <Box>
-        <Header size="large" justify="between" pad={{horizontal: 'medium'}}>
+        <Header size="large" pad={{ horizontal: 'medium', between: 'small' }}>
           {title}
-          {search}
+          <Box flex={true}>
+            {search}
+          </Box>
           {headerMenu}
         </Header>
         {this.props.children}
