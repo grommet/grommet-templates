@@ -35,8 +35,7 @@ export default class LayerForm extends Component {
       );
     } else {
       control = (
-        <Button type="submit" primary={true} strong={true}
-          label={submitLabel}
+        <Button type="submit" primary={true} label={submitLabel}
           onClick={this._onSubmit} />
       );
     }
