@@ -52,7 +52,7 @@ var LayerForm = function (_Component) {
   function LayerForm() {
     _classCallCheck(this, LayerForm);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(LayerForm).call(this));
+    var _this = _possibleConstructorReturn(this, (LayerForm.__proto__ || Object.getPrototypeOf(LayerForm)).call(this));
 
     _this._onSubmit = _this._onSubmit.bind(_this);
     return _this;
@@ -100,27 +100,23 @@ var LayerForm = function (_Component) {
         { align: 'right', closer: true, onClose: onClose,
           a11yTitle: title },
         _react2.default.createElement(
-          _Box2.default,
-          { full: 'vertical', justify: 'center' },
+          _Form2.default,
+          { onSubmit: this._onSubmit, compact: compact },
           _react2.default.createElement(
-            _Form2.default,
-            { onSubmit: this._onSubmit, compact: compact },
-            _react2.default.createElement(
-              'h1',
-              null,
-              title
-            ),
-            _react2.default.createElement(
-              _FormFields2.default,
-              null,
-              this.props.children
-            ),
-            _react2.default.createElement(
-              _Footer2.default,
-              { pad: { vertical: 'medium' }, justify: 'between' },
-              control,
-              secondaryControl
-            )
+            'h1',
+            null,
+            title
+          ),
+          _react2.default.createElement(
+            _FormFields2.default,
+            null,
+            this.props.children
+          ),
+          _react2.default.createElement(
+            _Footer2.default,
+            { pad: { vertical: 'medium' }, justify: 'between' },
+            control,
+            secondaryControl
           )
         )
       );

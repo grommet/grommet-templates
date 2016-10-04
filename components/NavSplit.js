@@ -52,7 +52,7 @@ var NavSidebar = function (_Component) {
   function NavSidebar() {
     _classCallCheck(this, NavSidebar);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(NavSidebar).apply(this, arguments));
+    return _possibleConstructorReturn(this, (NavSidebar.__proto__ || Object.getPrototypeOf(NavSidebar)).apply(this, arguments));
   }
 
   _createClass(NavSidebar, [{
@@ -104,7 +104,7 @@ var Main = function (_Component2) {
   function Main() {
     _classCallCheck(this, Main);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Main).apply(this, arguments));
+    return _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).apply(this, arguments));
   }
 
   _createClass(Main, [{
@@ -178,7 +178,7 @@ var NavSplit = function (_Component3) {
   function NavSplit() {
     _classCallCheck(this, NavSplit);
 
-    var _this3 = _possibleConstructorReturn(this, Object.getPrototypeOf(NavSplit).call(this));
+    var _this3 = _possibleConstructorReturn(this, (NavSplit.__proto__ || Object.getPrototypeOf(NavSplit)).call(this));
 
     _this3.state = { navActive: true, responsive: 'multiple' };
     return _this3;
