@@ -28,5 +28,8 @@ export default {
       'grommet': 'grommet'
     }
   },
-  scsslint: true
+  scsslint: true,
+  testPaths: [
+    '__tests__'
+  ]
 };

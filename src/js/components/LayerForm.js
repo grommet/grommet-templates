@@ -44,18 +44,16 @@ export default class LayerForm extends Component {
     return (
       <Layer align="right" closer={true} onClose={onClose}
         a11yTitle={title}>
-        <Box full="vertical" justify="center">
-          <Form onSubmit={this._onSubmit} compact={compact}>
-            <h1>{title}</h1>
-            <FormFields>
-              {this.props.children}
-            </FormFields>
-            <Footer pad={{vertical: 'medium'}} justify="between">
-              {control}
-              {secondaryControl}
-            </Footer>
-          </Form>
-        </Box>
+        <Form onSubmit={this._onSubmit} compact={compact}>
+          <h1>{title}</h1>
+          <FormFields>
+            {this.props.children}
+          </FormFields>
+          <Footer pad={{vertical: 'medium'}} justify="between">
+            {control}
+            {secondaryControl}
+          </Footer>
+        </Form>
       </Layer>
     );
   }

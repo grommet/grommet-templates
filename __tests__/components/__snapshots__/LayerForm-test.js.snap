@@ -1,0 +1,8 @@
+exports[`LayerForm default 1`] = `
+<span
+  style={
+    Object {
+      "display": "none"
+    }
+  } />
+`;
