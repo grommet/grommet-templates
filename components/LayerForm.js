@@ -90,8 +90,7 @@ var LayerForm = function (_Component) {
           )
         );
       } else {
-        control = _react2.default.createElement(_Button2.default, { type: 'submit', primary: true, strong: true,
-          label: submitLabel,
+        control = _react2.default.createElement(_Button2.default, { type: 'submit', primary: true, label: submitLabel,
           onClick: this._onSubmit });
       }
 
