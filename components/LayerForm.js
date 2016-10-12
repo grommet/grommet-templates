@@ -74,6 +74,7 @@ var LayerForm = function (_Component) {
       var compact = _props.compact;
       var busy = _props.busy;
       var secondaryControl = _props.secondaryControl;
+      var Tag = _props.titleTag;
 
       var control = void 0;
       if (busy) {
@@ -102,7 +103,7 @@ var LayerForm = function (_Component) {
           _Form2.default,
           { onSubmit: this._onSubmit, compact: compact },
           _react2.default.createElement(
-            'h1',
+            Tag,
             null,
             title
           ),
@@ -135,6 +136,11 @@ LayerForm.propTypes = {
   onSubmit: _react.PropTypes.func.isRequired,
   secondaryControl: _react.PropTypes.node,
   submitLabel: _react.PropTypes.string.isRequired,
-  title: _react.PropTypes.string.isRequired
+  title: _react.PropTypes.string.isRequired,
+  titleTag: _react.PropTypes.string
+};
+
+LayerForm.defaultProps = {
+  titleTag: 'h1'
 };
 module.exports = exports['default'];
