@@ -23,7 +23,7 @@ export default class LayerForm extends Component {
 
   render () {
     const { submitLabel, onClose, title, compact, busy,
-      secondaryControl } = this.props;
+      secondaryControl, titleTag: Tag } = this.props;
     let control;
     if (busy) {
       const label = (true === busy ? '' : busy);
@@ -44,7 +44,7 @@ export default class LayerForm extends Component {
       <Layer align="right" closer={true} onClose={onClose}
         a11yTitle={title}>
         <Form onSubmit={this._onSubmit} compact={compact}>
-          <h1>{title}</h1>
+          <Tag>{title}</Tag>
           <FormFields>
             {this.props.children}
           </FormFields>
@@ -65,5 +65,10 @@ LayerForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   secondaryControl: PropTypes.node,
   submitLabel: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  titleTag: PropTypes.string
+};
+
+LayerForm.defaultProps = {
+  titleTag: 'h1'
 };
