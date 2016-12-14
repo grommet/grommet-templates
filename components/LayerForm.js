@@ -26,6 +26,14 @@ var _FormFields = require('grommet/components/FormFields');
 
 var _FormFields2 = _interopRequireDefault(_FormFields);
 
+var _Header = require('grommet/components/Header');
+
+var _Header2 = _interopRequireDefault(_Header);
+
+var _Heading = require('grommet/components/Heading');
+
+var _Heading2 = _interopRequireDefault(_Heading);
+
 var _Footer = require('grommet/components/Footer');
 
 var _Footer2 = _interopRequireDefault(_Footer);
@@ -74,7 +82,7 @@ var LayerForm = function (_Component) {
           compact = _props.compact,
           busy = _props.busy,
           secondaryControl = _props.secondaryControl,
-          Tag = _props.titleTag;
+          titleTag = _props.titleTag;
 
       var control = void 0;
       if (busy) {
@@ -103,9 +111,13 @@ var LayerForm = function (_Component) {
           _Form2.default,
           { onSubmit: this._onSubmit, compact: compact },
           _react2.default.createElement(
-            Tag,
+            _Header2.default,
             null,
-            title
+            _react2.default.createElement(
+              _Heading2.default,
+              { tag: titleTag, margin: 'none' },
+              title
+            )
           ),
           _react2.default.createElement(
             _FormFields2.default,
