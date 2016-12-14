@@ -67,14 +67,14 @@ var LayerForm = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _props = this.props;
-      var submitLabel = _props.submitLabel;
-      var onClose = _props.onClose;
-      var title = _props.title;
-      var compact = _props.compact;
-      var busy = _props.busy;
-      var secondaryControl = _props.secondaryControl;
-      var Tag = _props.titleTag;
+      var _props = this.props,
+          submitLabel = _props.submitLabel,
+          onClose = _props.onClose,
+          title = _props.title,
+          compact = _props.compact,
+          busy = _props.busy,
+          secondaryControl = _props.secondaryControl,
+          Tag = _props.titleTag;
 
       var control = void 0;
       if (busy) {

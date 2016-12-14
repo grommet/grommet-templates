@@ -58,11 +58,11 @@ var NavSidebar = function (_Component) {
   _createClass(NavSidebar, [{
     key: 'render',
     value: function render() {
-      var _props = this.props;
-      var logo = _props.logo;
-      var navMenu = _props.navMenu;
-      var onClose = _props.onClose;
-      var title = _props.title;
+      var _props = this.props,
+          logo = _props.logo,
+          navMenu = _props.navMenu,
+          onClose = _props.onClose,
+          title = _props.title;
 
       return _react2.default.createElement(
         _Sidebar2.default,
@@ -110,13 +110,13 @@ var Main = function (_Component2) {
   _createClass(Main, [{
     key: 'render',
     value: function render() {
-      var _props2 = this.props;
-      var headerMenu = _props2.headerMenu;
-      var heading = _props2.heading;
-      var logo = _props2.logo;
-      var navActive = _props2.navActive;
-      var onOpenNavSidebar = _props2.onOpenNavSidebar;
-      var search = _props2.search;
+      var _props2 = this.props,
+          headerMenu = _props2.headerMenu,
+          heading = _props2.heading,
+          logo = _props2.logo,
+          navActive = _props2.navActive,
+          onOpenNavSidebar = _props2.onOpenNavSidebar,
+          search = _props2.search;
 
       var title = void 0;
       if (navActive) {
@@ -189,16 +189,16 @@ var NavSplit = function (_Component3) {
     value: function render() {
       var _this4 = this;
 
-      var _props3 = this.props;
-      var headerMenu = _props3.headerMenu;
-      var heading = _props3.heading;
-      var logo = _props3.logo;
-      var navMenu = _props3.navMenu;
-      var search = _props3.search;
-      var title = _props3.title;
-      var _state = this.state;
-      var navActive = _state.navActive;
-      var responsive = _state.responsive;
+      var _props3 = this.props,
+          headerMenu = _props3.headerMenu,
+          heading = _props3.heading,
+          logo = _props3.logo,
+          navMenu = _props3.navMenu,
+          search = _props3.search,
+          title = _props3.title;
+      var _state = this.state,
+          navActive = _state.navActive,
+          responsive = _state.responsive;
 
 
       var navSidebar = void 0;
