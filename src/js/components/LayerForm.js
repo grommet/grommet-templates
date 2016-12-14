@@ -5,6 +5,8 @@ import Layer from 'grommet/components/Layer';
 import Box from 'grommet/components/Box';
 import Form from 'grommet/components/Form';
 import FormFields from 'grommet/components/FormFields';
+import Header from 'grommet/components/Header';
+import Heading from 'grommet/components/Heading';
 import Footer from 'grommet/components/Footer';
 import Button from 'grommet/components/Button';
 import BusyIcon from 'grommet/components/icons/Spinning';
@@ -23,7 +25,7 @@ export default class LayerForm extends Component {
 
   render () {
     const { submitLabel, onClose, title, compact, busy,
-      secondaryControl, titleTag: Tag } = this.props;
+      secondaryControl, titleTag } = this.props;
     let control;
     if (busy) {
       const label = (true === busy ? '' : busy);
@@ -44,7 +46,9 @@ export default class LayerForm extends Component {
       <Layer align="right" closer={true} onClose={onClose}
         a11yTitle={title}>
         <Form onSubmit={this._onSubmit} compact={compact}>
-          <Tag>{title}</Tag>
+          <Header>
+            <Heading tag={titleTag} margin='none'>{title}</Heading>
+          </Header>
           <FormFields>
             {this.props.children}
           </FormFields>
